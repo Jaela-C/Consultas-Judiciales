@@ -3,7 +3,6 @@ const AppDAO = require('./dao')
 const ProjectRepository = require('./project_repository')
 function main() {
   const dao = new AppDAO('C:/Users/USER/Desktop/database.db')
-
   const projectRepo = new ProjectRepository(dao)
 
   projectRepo.getAll()
