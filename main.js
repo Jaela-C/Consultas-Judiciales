@@ -3,9 +3,10 @@ const AppDAO = require('./dao')
 const ProjectRepository = require('./project_repository')
 
 function main() {
-  const dao = new AppDAO('C:/Users/USER/Desktop/database.db');
+  const dao = new AppDAO('database.db');
   const projectRepo = new ProjectRepository(dao);
   const acciones = [];
+  var newArr
 
   projectRepo.getAll()
     .then((project) => {
@@ -13,12 +14,20 @@ function main() {
         acciones.push(project[i].Acciones)
       }
       console.log(acciones)
+      /*newArr = acciones.filter(function(el){
+        return(el.project[i].Acciones == 'RAZON')
+      })
+      console.log(newArr)*/
+      
       return acciones
     })
     .catch((err) => {
       console.log('Error: ')
       console.log(JSON.stringify(err))
     })
+  //console.log(acciones)
 }
+
+
 
 main()
